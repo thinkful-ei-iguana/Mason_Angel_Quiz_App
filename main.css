@@ -25,6 +25,10 @@ header {
     font-family: 'Source Code Pro', monospace;
 }
 
+.counters {
+    display: none;
+}
+
 .biggerSquare {
     display: flex;
     flex-direction: column;
