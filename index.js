@@ -24,7 +24,7 @@ const STORE = {
         'Yellow',
         'Green'
       ],
-      rightAnswer: 'Red'   
+      rightAnswer: 'Red'
     },
     {//Q3
       question: 'Who rescues Neo from the Matrix in the first movie?',
@@ -48,7 +48,7 @@ const STORE = {
     },
     {//Q5
       question: 'Who is "The One"?',
-      answers:[
+      answers: [
         'Trinity',
         'Morpheus',
         'The Oracle',
@@ -95,11 +95,11 @@ function createCounter() {
 }
 
 //Render question
-function renderQuestion() {  
+function renderQuestion() {
   if (STORE.questionNumber < STORE.questions.length) {
     return createQuestion(STORE.questionNumber);
   } else {
-    $('.questionBox').addClass('hide'); 
+    $('.questionBox').addClass('hide');
     finalFeedBack();
     $('.questionNumber').text(5);
   }
@@ -150,14 +150,16 @@ function updateScore() {
 //Feedback for if the answer selected is the right answer
 function rightAnswer() {
   $('.response').html(
-    `<h2 aria-live = "polite"> You answered correctly! </h2> <img src="quiz-pics/right-answer.jpeg" alt= "Neo Triumphant" width="200px">
+    `<h2 aria-live = "polite"> You answered correctly! </h2> <img src="quiz-pics/right-answer2.jpg" alt= "Neo Triumphant" width="200px">
+    <p class="sentence">You chose:</p>
+    <p class="sentence">${STORE.questions[STORE.questionNumber].rightAnswer}</p>
     <button type = "button" class= "nextButton button"> Next Question</button>`
   );
   updateScore();
 }
 
 //Feedback for if the answer selected is the wrong answer
-function wrongAnswer() { 
+function wrongAnswer() {
   $('.response').html(
     `<h2 aria-live="polite"> You answered incorrectly! </h2> <img src="quiz-pics/wrong-answer.jpg" alt= "Upset Enemies" width="200px">
   <p class="sentence">It's actually:</p>
@@ -186,7 +188,7 @@ function updateQuestionNumber() {
 function finalFeedBack() {
   $('.questionBox').removeClass('showBlock').addClass('hide');
   $('.final').removeClass('hide').addClass('showBlock');
-  let array; 
+  let array;
   const awesome = [
     'You did awesome!',
     'quiz-pics/awesome-feedback-matrix.jpg',
@@ -220,7 +222,7 @@ function resetStats() {
 //Restart quiz
 function restartQuiz() {
   $('.biggerSquare').on('click', '.restartButton', function (event) {
-    event.preventDefault();     
+    event.preventDefault();
     resetStats();
     $('.final, .counters').removeClass('showBlock').addClass('hide');
     $('.startQuiz').removeClass('hide').addClass('showBlock');
@@ -228,7 +230,7 @@ function restartQuiz() {
 }
 
 //Runs the functions
-function makeQuiz () {
+function makeQuiz() {
   addMainContent();
   createCounter();
   startQuiz();

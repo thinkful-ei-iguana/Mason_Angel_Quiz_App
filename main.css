@@ -54,7 +54,10 @@ fieldset{
    background-color: black;
    color: yellowgreen; 
    display: flex;
-   border: 0
+   flex-direction: column;
+   border: 0;
+   padding: 0;
+   margin: 0;
 }
  
 .images {
@@ -99,6 +102,11 @@ body li {
 .sentence {
     text-align: left;
 }
+
+.questionText .sentence {
+    display: block;
+}
+
 p.sentence{
     text-align: center;
 }
